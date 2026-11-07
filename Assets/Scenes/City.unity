@@ -3712,6 +3712,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5489036386304018604, guid: 1b68f33fea91348438211463abdf97ef, type: 3}
   m_PrefabInstance: {fileID: 356245563}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &371553354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8725535514106404824, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+  m_PrefabInstance: {fileID: 1590660908963333345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &383606222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5452,6 +5463,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5489036386304018604, guid: e7750208bb0ff014c8a24432bf9cbb05, type: 3}
   m_PrefabInstance: {fileID: 548145800}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &553359135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6479724106094118183, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+  m_PrefabInstance: {fileID: 1590660908963333345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Scrollbar
 --- !u!1001 &553748461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10745,6 +10767,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2981316287729991673, guid: cac7b55ea6407444dbb53d7996ffa8f0, type: 3}
   m_PrefabInstance: {fileID: 1582886895}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1129265470 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4403241435926618128, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+  m_PrefabInstance: {fileID: 1590660908963333345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Scrollbar
 --- !u!1001 &1130202565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11845,6 +11878,17 @@ Transform:
   - {fileID: 8019322577299764991}
   m_Father: {fileID: 300091547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1313866774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8268130745520589183, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+  m_PrefabInstance: {fileID: 1590660908963333345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Scrollbar
 --- !u!1001 &1321937398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13320,6 +13364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1448958269}
   - component: {fileID: 1448958275}
+  - component: {fileID: 1448958276}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -13416,6 +13461,23 @@ MonoBehaviour:
     - {fileID: 1114941267793207701}
   objectPools:
     trash: {fileID: 207427538}
+--- !u!114 &1448958276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448958268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ba26701bd64ad419257983000a3bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterSelector
+  characterImage: {fileID: 371553354}
+  characterNameText: {fileID: 1639071690}
+  hungerBar: {fileID: 1129265470}
+  sleepBar: {fileID: 1313866774}
+  lonelinessBar: {fileID: 553359135}
 --- !u!114 &1452245794 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7637389154850715525, guid: cf0de01a58d4bd54fa9552ac1290ecba, type: 3}
@@ -14588,6 +14650,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8025176214795638422, guid: a479a75fb405efd45963ce3fb8a6cfaf, type: 3}
   m_PrefabInstance: {fileID: 1607233542}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1639071690 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1817978364724054044, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+  m_PrefabInstance: {fileID: 1590660908963333345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1652501085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20565,6 +20638,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Faim
       objectReference: {fileID: 0}
+    - target: {fileID: 3771264573203346760, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771264573203346760, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+      propertyPath: m_Color.g
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771264573203346760, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+      propertyPath: m_Color.r
+      value: 0.57254905
+      objectReference: {fileID: 0}
     - target: {fileID: 4217583622413684852, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -20611,6 +20696,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4321553302427661648, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403241435926618128, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}
+      propertyPath: m_NumberOfSteps
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657103094957496859, guid: 3cef66dc96052eb4582321aa644f04aa, type: 3}

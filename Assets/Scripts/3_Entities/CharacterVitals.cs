@@ -18,18 +18,20 @@ using Random = UnityEngine.Random;
 // Vous n'avez pas à toucher cette classe pour le travail.
 public class CharacterVitals : MonoBehaviour
 {
+    public const float MAX_VITAL_VALUE = 100f;
+
     [Header("Current values")]
-    [SerializeField, Range(0, 100)] private float hunger = 0;
-    [SerializeField, Range(0, 100)] private float loneliness = 0;
-    [SerializeField, Range(0, 100)] private float sleepiness = 0;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float hunger = 0;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float loneliness = 0;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float sleepiness = 0;
 
     [Header("Initial values")]
-    [SerializeField, Range(0, 100)] private float minStartingHunger = 0f;
-    [SerializeField, Range(0, 100)] private float maxStartingHunger = 25f;
-    [SerializeField, Range(0, 100)] private float minStartingLoneliness = 0f;
-    [SerializeField, Range(0, 100)] private float maxStartingLoneliness = 50f;
-    [SerializeField, Range(0, 100)] private float minStartingSleepiness = 0f;
-    [SerializeField, Range(0, 100)] private float maxStartingSleepiness = 50f;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float minStartingHunger = 0f;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float maxStartingHunger = 25f;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float minStartingLoneliness = 0f;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float maxStartingLoneliness = 50f;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float minStartingSleepiness = 0f;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float maxStartingSleepiness = 50f;
 
     [Header("Change rates")]
     [SerializeField, Min(0)] private float hungerGainRate = 2.5f;
@@ -40,12 +42,12 @@ public class CharacterVitals : MonoBehaviour
     [SerializeField, Min(0)] private float sleepinessReductionRate = 10f;
 
     [Header("Thresholds")]
-    [SerializeField, Range(0, 100)] private float hungerTarget = 0f;
-    [SerializeField, Range(0, 100)] private float hungerThreshold = 50f;
-    [SerializeField, Range(0, 100)] private float lonelinessTarget = 0f;
-    [SerializeField, Range(0, 100)] private float lonelinessThreshold = 80f;
-    [SerializeField, Range(0, 100)] private float sleepinessTarget = 0f;
-    [SerializeField, Range(0, 100)] private float sleepinessThreshold = 70f;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float hungerTarget = 0f;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float hungerThreshold = 50f;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float lonelinessTarget = 0f;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float lonelinessThreshold = 80f;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float sleepinessTarget = 0f;
+    [SerializeField, Range(0, MAX_VITAL_VALUE)] private float sleepinessThreshold = 70f;
 
 #if UNITY_EDITOR
     private Character character;
@@ -84,17 +86,17 @@ public class CharacterVitals : MonoBehaviour
         // Do not spam the console with warnings. Give the cause of death only once.
         if (!hasDied)
         {
-            if (hunger >= 100)
+            if (hunger >= MAX_VITAL_VALUE)
             {
                 Debug.LogWarning($"{character.FullName} died of hunger.", gameObject);
                 hasDied = true;
             }
-            else if (loneliness >= 100)
+            else if (loneliness >= MAX_VITAL_VALUE)
             {
                 Debug.LogWarning($"{character.FullName} died of loneliness.", gameObject);
                 hasDied = true;
             }
-            else if (sleepiness >= 100)
+            else if (sleepiness >= MAX_VITAL_VALUE)
             {
                 Debug.LogWarning($"{character.FullName} died from a lack of sleep.", gameObject);
                 hasDied = true;
@@ -107,19 +109,19 @@ public class CharacterVitals : MonoBehaviour
     public void RaiseHunger()
     {
         hunger += hungerGainRate * Time.deltaTime;
-        if (hunger > 100) hunger = 100;
+        if (hunger > MAX_VITAL_VALUE) hunger = MAX_VITAL_VALUE;
     }
 
     public void RaiseLoneliness()
     {
         loneliness += lonelinessGainRate * Time.deltaTime;
-        if (loneliness > 100) loneliness = 100;
+        if (loneliness > MAX_VITAL_VALUE) loneliness = MAX_VITAL_VALUE;
     }
 
     public void RaiseSleepiness()
     {
         sleepiness += sleepinessGainRate * Time.deltaTime;
-        if (sleepiness > 100) sleepiness = 100;
+        if (sleepiness > MAX_VITAL_VALUE) sleepiness = MAX_VITAL_VALUE;
     }
 
     public void LowerHunger()

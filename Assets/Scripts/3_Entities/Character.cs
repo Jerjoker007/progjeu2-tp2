@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using Random = UnityEngine.Random;
 
 // Personnage.
 //
@@ -76,7 +75,7 @@ public class Character : MonoBehaviour, IDestination
         CharacterSpawnPoint spawnPoint;
         do
         {
-            spawnPoint = gameManager.CityObjects.CharacterSpawnPoints[Random.Range(0, gameManager.CityObjects.CharacterSpawnPoints.Length)];
+            spawnPoint = ArrayExtensions.Random(gameManager.CityObjects.CharacterSpawnPoints);
         } while (!spawnPoint.gameObject.activeSelf);
 
         transform.position = spawnPoint.Position;

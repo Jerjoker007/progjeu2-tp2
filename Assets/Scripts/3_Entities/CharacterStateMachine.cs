@@ -18,7 +18,9 @@ public class CharacterStateMachine : MonoBehaviour
     private Character character;
     private float throwTrashCheckTimer;
 
-    public string CurrentStateName => "None";
+    private BaseState currentState;
+    private string currentStateName;
+    public string CurrentStateName => currentStateName;
     public CityCharacterTrashBehaviour TrashBehaviour => trashBehaviour;
 
     private void Awake()
@@ -28,6 +30,8 @@ public class CharacterStateMachine : MonoBehaviour
 
         // Init timers.
         throwTrashCheckTimer = 0;
+
+        ChangeCharacterState(CharacterNextState.Moving);
     }
 
     private void Update()
@@ -52,9 +56,54 @@ public class CharacterStateMachine : MonoBehaviour
         }
     }
 
-    private void ChangeCharacterState()
+    public void ChangeCharacterState(CharacterNextState nextState)
     {
-        // TODO: Implement the state change logic here based on the character's current state and conditions.
+        if (currentState != null) currentState.enabled = false;
+        switch (nextState)
+        {
+            case CharacterNextState.Moving:
+                {
+                    currentState = gameObject.GetComponent<MovingState>();
+                    break;
+                }
+            case CharacterNextState.Working:
+                {
+                    currentState = gameObject.GetComponent<WorkingState>();
+                    break;
+                }
+            case CharacterNextState.Eating:
+                {
+                    currentState = gameObject.GetComponent<EatingState>();
+                    break;
+                }
+            case CharacterNextState.Socializing:
+                {
+                    currentState = gameObject.GetComponent<SocializingState>();
+                    break;
+                }
+            case CharacterNextState.Sleeping:
+                {
+                    currentState = gameObject.GetComponent<SleepingState>();
+                    break;
+                }
+            case CharacterNextState.PickingTrash:
+                {
+                    currentState = gameObject.GetComponent<PickingTrashState>();
+                    break;
+                }
+            case CharacterNextState.ThrowingTrash:
+                {
+                    currentState = gameObject.GetComponent<ThrowingTrashState>();
+                    break;
+                }
+            case CharacterNextState.GreetingFriend:
+                {
+                    currentState = gameObject.GetComponent<GreetingState>();
+                    break;
+                }
+        }
+        currentStateName = currentState.GetType().Name;
+        currentState.enabled = true;
     }
 }
 
@@ -72,7 +121,7 @@ public enum CharacterNextState
     Eating,
     Socializing,
     Sleeping,
-    TakingTrash,
+    PickingTrash,
     ThrowingTrash,
     GreetingFriend
 }

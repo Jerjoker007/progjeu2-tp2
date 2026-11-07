@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 // Mémoire du personnage.
@@ -27,7 +28,7 @@ public class CharacterBlackboard : MonoBehaviour
     [Header("Memory")]
     [field:SerializeField] public bool ShouldThrowTrash { get; set; }
     [field:SerializeField] public Character LastFriendSeen { get; set; }
-    [field:SerializeField] public Trash LastTrashSeen { get; set; }
+    [field:SerializeField] public List<Trash> LastTrashSeen { get; set; }
     [field:SerializeField] public Building LastDestination { get; set; }
 
     
@@ -41,6 +42,7 @@ public class CharacterBlackboard : MonoBehaviour
     private void Awake()
     {
         gameManager = Finder.GameManager;
+        LastTrashSeen = new List<Trash>();
     }
     
     // Blackboard maintenance.

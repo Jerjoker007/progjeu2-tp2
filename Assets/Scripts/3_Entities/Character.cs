@@ -69,9 +69,6 @@ public class Character : MonoBehaviour, IDestination
         collider = GetComponent<CapsuleCollider>();
         renderers = GetComponentsInChildren<Renderer>();
 
-        // Init starting position.
-        // TODO : Placer le personnage à un endroit aléatoire.
-        //        Notez que le Game Manager dispose de la liste des spawn points.  À vous de les utiliser judicieusement
         CharacterSpawnPoint spawnPoint;
         do
         {
@@ -80,19 +77,6 @@ public class Character : MonoBehaviour, IDestination
 
         transform.position = spawnPoint.Position;
         spawnPoint.gameObject.SetActive(false);
-    }
-
-    // TODO : Enlever la méthode Start. Ce n'est que pour la courte démo quand vous partez le jeu la première fois.
-    //        Enlever aussi le [SerializedField] "initialDestination" par la même occasion.
-    //        Vous pourrez mettre une nouvelle méthode Start si vous en avez besoin.
-    private IEnumerator Start()
-    {
-        // Move.
-        navMeshAgent.SetDestination(initialDestination);
-        yield return new WaitUntil(() => Vector3.Distance(transform.position, initialDestination) < destinationReachedDistance);
-        
-        // Greet.
-        characterAnimation.PlayGreetAnimation();
     }
 
     public void NavigateTo(IDestination destination)
@@ -138,9 +122,7 @@ public class Character : MonoBehaviour, IDestination
             // Make trash disappear (should be safe even if trash is cleaned by someone else).
             gameManager.ObjectPools.Trash.Release(trash.gameObject);
 
-            // Remove trash from memory.
-            // TODO : Enlevez le déchet ramassé de la mémoire du personnage. Par exemple :
-            //      blackboard.Trash = null;
+            blackboard.LastTrashSeen.Remove(trash);
 
 #if UNITY_EDITOR
             // Append the character name to the trash GameObject name for debugging.
@@ -206,8 +188,7 @@ public class Character : MonoBehaviour, IDestination
             yield return new WaitUntil(() => !characterAnimation.IsPlayingThrowAnimation());
 
             // Remove friend from memory.
-            // TODO : Enlevez l'ami salué de la mémoire du personnage. Par exemple :
-            //      blackboard.Friend = null;
+            blackboard.LastFriendSeen = null;
         }
 
         StartCoroutine(Routine());

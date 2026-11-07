@@ -13,6 +13,14 @@ GameObject:
   - component: {fileID: 5189816781710339723}
   - component: {fileID: 3096203625949484368}
   - component: {fileID: 1374310876092221418}
+  - component: {fileID: 2136835821257320708}
+  - component: {fileID: 8470427669814558208}
+  - component: {fileID: 8691692671118275497}
+  - component: {fileID: 7855659697689648897}
+  - component: {fileID: 8856031756559846275}
+  - component: {fileID: 96774688693299676}
+  - component: {fileID: 7977156970647862849}
+  - component: {fileID: 3727021814502215400}
   - component: {fileID: 6321501451660686319}
   - component: {fileID: 5574530279088914265}
   - component: {fileID: 7098670479731032637}
@@ -78,7 +86,9 @@ MonoBehaviour:
   <Friends>k__BackingField: []
   <ShouldThrowTrash>k__BackingField: 0
   <LastFriendSeen>k__BackingField: {fileID: 0}
-  <LastTrashSeen>k__BackingField: {fileID: 0}
+  <LastTrashSeen>k__BackingField:
+  - {fileID: 0}
+  <LastDestination>k__BackingField: {fileID: 0}
 --- !u!114 &3096203625949484368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +116,102 @@ MonoBehaviour:
   trashBehaviour: 0
   throwTrashChances: 5
   throwTrashCheckDelay: 1
+--- !u!114 &2136835821257320708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637105231329891834}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a69fbfb1d377ca47928d5d1a121867a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStateEating
+--- !u!114 &8470427669814558208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637105231329891834}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d3ac2887062e342b4ea14700393790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStateGreetingFriend
+--- !u!114 &8691692671118275497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637105231329891834}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8594e578c2ef44a9435a4ac7535a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStateMoving
+--- !u!114 &7855659697689648897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637105231329891834}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4bd727475997a4f81f4d295c77d84e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStatePickingTrash
+--- !u!114 &8856031756559846275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637105231329891834}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2d7accc449b094b92844e6aeab61ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStateSleeping
+--- !u!114 &96774688693299676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637105231329891834}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3cac302360f464ab2f90eee1fbcc1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStateSocializing
+--- !u!114 &7977156970647862849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637105231329891834}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a32a91103ae5f17469fde2538e3ffc77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStateThrowingTrash
+--- !u!114 &3727021814502215400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637105231329891834}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43947f5bad922c349ac2e936c39d2b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStateWorking
 --- !u!114 &6321501451660686319
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,28 +2,32 @@ using UnityEngine;
 
 public class CharacterSensor : MonoBehaviour
 {
+    private Character character;
     private CharacterBlackboard blackboard;
+    private CharacterStateMachine stateManager;
 
     void Awake()
     {
+        character = GetComponent<Character>();
         blackboard = GetComponent<CharacterBlackboard>();
+        stateManager = GetComponent<CharacterStateMachine>();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.isTrigger) return;
+        if (!character.IsAvailable) return;
 
-        if (other.CompareTag("Trash") && blackboard.ShouldThrowTrash)
+        if (other.CompareTag("Trash") && stateManager.TrashBehaviour == CityCharacterTrashBehaviour.PickUp)
         {
             Trash trash = other.GetComponent<Trash>();
-            if (!trash.IsAvailable) return;
+            if (!trash.IsAvailable || blackboard.LastTrashSeen.Contains(trash)) return;
             
-            blackboard.LastTrashSeen = trash;
+            blackboard.LastTrashSeen.Add(trash);
         }
-        else if (other.CompareTag("Character"))
+        else if (!other.isTrigger && other.CompareTag("Character"))
         {
             Character friend = other.GetComponent<Character>();
-            if (!blackboard.IsFriend(friend)) return;
+            if (!friend.IsAvailable ||!blackboard.IsFriend(friend)) return;
 
             blackboard.LastFriendSeen = friend;
         }
@@ -31,16 +35,14 @@ public class CharacterSensor : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.isTrigger) return;
-
-        if (other.CompareTag("Trash"))
+        if (other.CompareTag("Trash") && stateManager.TrashBehaviour == CityCharacterTrashBehaviour.PickUp)
         {
             Trash trash = other.GetComponent<Trash>();
-            if (blackboard.LastTrashSeen != trash) return;
+            if (blackboard.LastTrashSeen.Contains(trash)) return;
 
-            blackboard.LastTrashSeen = null;
+            blackboard.LastTrashSeen.Remove(trash);
         }
-        else if (other.CompareTag("Character"))
+        else if (!other.isTrigger && other.CompareTag("Character"))
         {
             Character friend = other.GetComponent<Character>();
             if (blackboard.LastFriendSeen != friend) return;
